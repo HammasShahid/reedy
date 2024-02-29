@@ -29,7 +29,7 @@ export default async function TopicShowPage({ params: { slug } }: Props) {
             </Button>
           </PopoverTrigger>
           <PopoverContent>
-            <PostCreateForm />
+            <PostCreateForm topic={topic} />
           </PopoverContent>
         </Popover>
         <div className="border p-4 shadow">
