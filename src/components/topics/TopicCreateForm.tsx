@@ -11,6 +11,7 @@ import {
   Textarea,
 } from '@nextui-org/react';
 import { createTopic } from '@/actions/topic';
+import FormButton from '@/components/FormButton';
 
 export default function TopicCreateForm() {
   const [formState, action] = useFormState(createTopic, { errors: {} });
@@ -41,9 +42,7 @@ export default function TopicCreateForm() {
               errorMessage={formState.errors.description?.join(', ')}
             ></Textarea>
 
-            <Button type="submit" variant="flat" color="primary">
-              Add
-            </Button>
+            <FormButton>Add</FormButton>
 
             {formState.errors._form && (
               <div className="text-red-600 bg-red-100 p-4 rounded">
