@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import PostShow from '@/components/posts/PostShow';
 import paths from '@/paths';
+import CommentCreateForm from '@/components/comments/CommentCreateForm';
 
 interface Props {
   params: { postId: string; slug: string };
@@ -13,6 +14,7 @@ export default function PostShowPage({ params: { postId, slug } }: Props) {
         {'< '}Back to {slug}
       </Link>
       <PostShow postId={postId} />
+      <CommentCreateForm postId={postId} startOpen />
     </div>
   );
 }
