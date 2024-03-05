@@ -31,3 +31,16 @@ export async function getTopPosts(): Promise<PostListItem[]> {
     take: 5,
   });
 }
+
+export async function getPostsBySearchTerm(term: string) {
+  return await db.post.findMany({
+    where: {
+      OR: [{ title: { contains: term } }, { content: { contains: term } }],
+    },
+    include: {
+      user: { select: { name: true } },
+      topic: { select: { slug: true } },
+      _count: { select: { comments: true } },
+    },
+  });
+}
